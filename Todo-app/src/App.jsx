@@ -9,13 +9,21 @@ function App() {
   }
   function Onclk(){
     setTodo([...todos,value])
-    console.log(todos)
+  }
+  function HandleOndel(id){
+    let upadatedList=todos.filter((el,index)=>(
+      index!==id
+    ))
+    setTodo(upadatedList)
   }
   return (
     <>
     <input onChange={GetValue} type="text" placeholder='Enter the task' />
     <button onClick={Onclk}>Add Task</button>
-    <ul>{todos.map((prod)=>(<li>{prod}</li>
+    <ul>{todos.map((prod,index)=>(<li>{prod}
+      
+      <button onClick={()=>HandleOndel(index)}>Delete</button>
+    </li>
     ))}</ul>
     </>
   )
