@@ -1,14 +1,22 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [value, setValue] = useState("")
+  const [todos,setTodo]=useState([])
+  function GetValue(e){
+    setValue(e.target.value)
+  }
+  function Onclk(){
+    setTodo([...todos,value])
+    console.log(todos)
+  }
   return (
     <>
-    
+    <input onChange={GetValue} type="text" placeholder='Enter the task' />
+    <button onClick={Onclk}>Add Task</button>
+    <ul>{todos.map((prod)=>(<li>{prod}</li>
+    ))}</ul>
     </>
   )
 }
