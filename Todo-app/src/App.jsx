@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import './App.css'
+import UserForm from './Form.jsx'
+import ApiTodo from './ApiTodo.jsx'
 
 function App() {
   const [value, setValue] = useState("")
@@ -18,13 +20,15 @@ function App() {
   }
   return (
     <>
-    <input onChange={GetValue} type="text" placeholder='Enter the task' />
+    <input onChange={GetValue} type="email" placeholder='Enter the task' />
     <button onClick={Onclk}>Add Task</button>
     <ul>{todos.map((prod,index)=>(<li>{prod}
       
       <button onClick={()=>HandleOndel(index)}>Delete</button>
     </li>
     ))}</ul>
+    <UserForm/>
+    <ApiTodo/>
     </>
   )
 }
